@@ -1,0 +1,37 @@
+buildscript {
+    repositories {
+        maven { url = "https://maven.minecraftforge.net/" }
+        maven { url = "https://maven.aliyun.com/repository/public/" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.0.197'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+
+version = "1.0"
+group = "com.test"
+archivesBaseName = "rawplacemod"
+
+minecraft {
+    version = "1.12.2-14.23.5.2860"
+    runDir = "run"
+}
+
+repositories {
+    maven {
+        url "file:///${project.projectDir}/mcmodsrepo"
+    }
+    maven { url = "https://maven.aliyun.com/repository/public/" }
+    maven { url = "https://maven.minecraftforge.net/" }
+}
+
+dependencies {
+}
+
+jar {
+    manifest {
+        attributes 'FMLCorePluginContainsFMLMod': 'true'
+    }
+}
